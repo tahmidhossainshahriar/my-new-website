@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#080d18" />
+  <meta name="description" content="The personal website of MD. Tahmid Hossain is currently undergoing maintenance and improvements." />
+  <title>Md. Tahmid Hossain</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #080d18;
+      --text: #f4f7fc;
+      --muted: #aab5c8;
+      --accent: #9fc5ff;
+      --line: rgba(190, 210, 240, .16);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      min-height: 100svh;
+      display: grid;
+      place-items: center;
+      padding: 28px 20px;
+      /* Keep vertical scrolling available so mobile browsers can pull to refresh. */
+      overflow-x: hidden;
+      overflow-y: auto;
+      overscroll-behavior-y: auto;
+      touch-action: pan-y;
+      background:
+        radial-gradient(ellipse at 18% 15%, rgba(52, 91, 151, .20), transparent 38%),
+        radial-gradient(ellipse at 85% 82%, rgba(35, 70, 120, .16), transparent 35%),
+        linear-gradient(145deg, #080d18 0%, #0b1424 52%, #080d18 100%);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    /* Subtle star-like background texture */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .42;
+      background-image:
+        radial-gradient(1px 1px at 12% 22%, #dceaff 98%, transparent),
+        radial-gradient(1px 1px at 78% 18%, #dceaff 98%, transparent),
+        radial-gradient(1px 1px at 68% 73%, #dceaff 98%, transparent),
+        radial-gradient(1px 1px at 28% 81%, #dceaff 98%, transparent),
+        radial-gradient(1px 1px at 91% 56%, #dceaff 98%, transparent),
+        radial-gradient(1px 1px at 47% 34%, #dceaff 98%, transparent);
+      background-size: 380px 300px;
+    }
+
+    .shell {
+      position: relative;
+      width: min(100%, 760px);
+      padding: clamp(34px, 7vw, 68px) clamp(24px, 7vw, 72px);
+      text-align: center;
+      border: 1px solid var(--line);
+      border-radius: 26px;
+      background: linear-gradient(145deg, rgba(18, 29, 48, .88), rgba(10, 18, 32, .84));
+      box-shadow: 0 28px 90px rgba(0, 0, 0, .42), inset 0 1px 0 rgba(255,255,255,.045);
+      backdrop-filter: blur(14px);
+      animation: appear .8s ease-out both;
+    }
+
+    .monogram {
+      width: 62px;
+      height: 62px;
+      margin: 0 auto 24px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(159, 197, 255, .42);
+      border-radius: 18px;
+      color: var(--accent);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 23px;
+      letter-spacing: .04em;
+      background: rgba(119, 164, 230, .08);
+      box-shadow: 0 0 34px rgba(100, 155, 235, .10);
+    }
+
+    .name {
+      margin: 0;
+      font-size: clamp(13px, 2vw, 15px);
+      font-weight: 650;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: #e8eef9;
+    }
+
+    .rule {
+      width: 54px;
+      height: 1px;
+      margin: 28px auto;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    }
+
+    .eyebrow {
+      margin: 0 0 14px;
+      color: var(--accent);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .24em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 620px;
+      margin: 0 auto;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(34px, 6.5vw, 56px);
+      line-height: 1.12;
+      font-weight: 500;
+      letter-spacing: -.035em;
+    }
+
+    .message {
+      max-width: 520px;
+      margin: 22px auto 0;
+      color: var(--muted);
+      font-size: clamp(14px, 2.2vw, 16px);
+      line-height: 1.85;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-top: 32px;
+      padding: 10px 15px;
+      border: 1px solid rgba(159, 197, 255, .20);
+      border-radius: 999px;
+      background: rgba(159, 197, 255, .07);
+      color: #dce9fb;
+      font-size: 12px;
+      letter-spacing: .035em;
+    }
+
+    .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #9fc5ff;
+      box-shadow: 0 0 12px rgba(159, 197, 255, .85);
+      animation: pulse 1.8s ease-in-out infinite;
+    }
+
+    footer {
+      margin-top: 46px;
+      color: #748198;
+      font-size: 11px;
+      letter-spacing: .06em;
+    }
+
+    @keyframes appear {
+      from { opacity: 0; transform: translateY(14px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: .55; transform: scale(.88); }
+      50% { opacity: 1; transform: scale(1.12); }
+    }
+
+    @media (max-width: 480px) {
+      .shell { border-radius: 20px; }
+      .name { letter-spacing: .15em; }
+      footer { margin-top: 36px; line-height: 1.7; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <div class="monogram" aria-hidden="true">TH</div>
+    <p class="name">MD. Tahmid Hossain</p>
+    <div class="rule" aria-hidden="true"></div>
+
+    <p class="eyebrow">A refreshed experience is on its way</p>
+    <h1>Website Under Maintenance</h1>
+
+    <p class="message">
+      We are currently making updates and improvements to enhance your browsing
+      experience. The website will be back online soon.
+    </p>
+
+    <div class="status">
+      <span class="dot" aria-hidden="true"></span>
+      <span>Temporarily unavailable</span>
+    </div>
+
+    <footer>© 2027 Md. Tahmid Hossain. All Rights Reserved.</footer>
+  </main>
+</body>
+</html>
